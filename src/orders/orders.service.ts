@@ -77,7 +77,7 @@ export class OrdersService {
           productSku: item.skuId,
           isSold: false,
         });
-        if (itemsAreInStock.length < item.quantity) {
+        if (itemsAreInStock.length <= item.quantity) {
           lineItems.push({
             price: item.skuPriceId,
             quantity: item.quantity,

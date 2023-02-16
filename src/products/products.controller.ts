@@ -100,6 +100,15 @@ export class ProductsController {
     );
   }
 
+  @Delete('/:productId/skus/:skuId')
+  @Roles(userTypes.ADMIN)
+  async deleteSkuById(
+    @Param('productId') productId: string,
+    @Param('skuId') skuId: string,
+  ) {
+    return await this.productsService.deleteProductSkuById(productId, skuId);
+  }
+
   @Post('/:productId/skus/:skuId/licenses')
   @Roles(userTypes.ADMIN)
   async addProductSkuLicense(
